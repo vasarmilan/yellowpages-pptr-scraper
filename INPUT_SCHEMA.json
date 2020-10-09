@@ -4,14 +4,22 @@
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "startUrls": {
-      "title": "Start URLs",
-      "type": "array",
-      "description": "URLs to start with.",
-      "editor": "requestListSources"
+    "searchTerms": {
+      "title": "Search Terms",
+      "type": "string",
+      "prefill": "Dentist",
+      "description": "Search term",
+      "editor": "textfield"
+    },
+    "geoLocationTerms":{
+      "title": "Geolocation terms",
+      "type": "string",
+      "prefill": "Los Angeles",
+      "description": "Search term",
+      "editor": "textfield"
     }
   },
   "required": [
-    "startUrls"
+    "searchTerms", "geoLocationTerms"
   ]
 }
