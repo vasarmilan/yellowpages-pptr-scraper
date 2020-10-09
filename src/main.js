@@ -4,9 +4,11 @@ const { handleStart, handleList, handleDetail } = require('./routes');
 const { utils: { log } } = Apify;
 
 Apify.main(async () => {
-    const { startUrls } = await Apify.getInput();
+    const { searchTerms, geoLocationTerms } = await Apify.getInput();
 
-    const requestList = await Apify.openRequestList('start-urls', startUrls);
+    log.info(`Search terms: ${searchTerms}, Geolocation terms: ${geoLocationTerms}`);
+
+    const requestList = await Apify.openRequestList('start-urls', []);
     const requestQueue = await Apify.openRequestQueue();
     const proxyConfiguration = await Apify.createProxyConfiguration();
 
@@ -20,16 +22,6 @@ Apify.main(async () => {
             stealth: true,
         },
         handlePageFunction: async (context) => {
-            const { url, userData: { label } } = context.request;
-            log.info('Page opened.', { label, url });
-            switch (label) {
-                case 'LIST':
-                    return handleList(context);
-                case 'DETAIL':
-                    return handleDetail(context);
-                default:
-                    return handleStart(context);
-            }
         },
     });
 
