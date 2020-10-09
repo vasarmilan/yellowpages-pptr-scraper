@@ -35,5 +35,8 @@ exports.SEARCHPAGE = async ({ request, page }, { requestQueue, baseUrl, maxPages
 };
 
 exports.LISTING = async ({ request, page}, { requestQueue }) => {
-
-}
+    await page.waitForSelector('.sales-info > h1');
+    Apify.pushData({
+        businessName: await page.$eval('.sales-info > h1', (el) => el.textContent),
+    });
+};
