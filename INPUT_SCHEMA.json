@@ -17,6 +17,13 @@
       "prefill": "Los Angeles",
       "description": "Search term",
       "editor": "textfield"
+    },
+    "maxPages":{
+      "title": "Maximum pages",
+      "type": "integer",
+      "prefill": 0,
+      "description": "Maximum pages to scrape",
+      "editor": "textfield"
     }
   },
   "required": [
