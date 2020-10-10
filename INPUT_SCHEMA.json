@@ -22,8 +22,7 @@
       "title": "Maximum pages",
       "type": "integer",
       "prefill": 0,
-      "description": "Maximum pages to scrape",
-      "editor": "textfield"
+      "description": "Maximum pages to scrape"
     }
   },
   "required": [
